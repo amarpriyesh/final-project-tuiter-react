@@ -52,6 +52,8 @@ const Tuit = ({tuit, deleteTuit, likeTuit, dislikeTuit}) => {
       </div>
       <div className="w-100">
           <i onClick={() => {
+
+              console.log("I am here",user._id)
               if(user._id===tuit.postedBy._id) {
                   deleteTuit(tuit._id)
                   window.location. reload(true);
