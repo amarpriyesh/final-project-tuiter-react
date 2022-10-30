@@ -7,7 +7,6 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import Dialog from "@material-ui/core/Dialog";
-import Carousel from "react-multi-carousel";
 import Tuit from "../tuits/tuit";
 import * as likesService from "../../services/likes-service";
 import * as service from "../../services/tuits-service";
