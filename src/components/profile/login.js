@@ -10,9 +10,9 @@ import {GoogleLogin,GoogleLogout} from "react-google-login";
 export const Login = () => {
     const [loginUser, setLoginUser] = useState({});
     const navigate = useNavigate()
-    let clientId="959350101705-ci2gb98611qod5td229t1cfim1cbna06.apps.googleusercontent.com"
+    let clientId="959350101705-iulfiifgd5jt2n09cuuu9vj3a9lnqb0v.apps.googleusercontent.com"
     if (process.env.REACT_APP_ENVIRONMENT=="PRODUCTION") {
-        clientId="959350101705-ci2gb98611qod5td229t1cfim1cbna06.apps.googleusercontent.com"
+        clientId="959350101705-iulfiifgd5jt2n09cuuu9vj3a9lnqb0v.apps.googleusercontent.com"
 }
 
     const googleLogin = (user1) =>
