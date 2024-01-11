@@ -10,22 +10,29 @@ import {GoogleLogin,GoogleLogout} from "react-google-login";
 export const Login = () => {
     const [loginUser, setLoginUser] = useState({});
     const navigate = useNavigate()
-    var clientId="959350101705-iulfiifgd5jt2n09cuuu9vj3a9lnqb0v.apps.googleusercontent.com"
+    let clientId="959350101705-ci2gb98611qod5td229t1cfim1cbna06.apps.googleusercontent.com"
     if (process.env.REACT_APP_ENVIRONMENT=="PRODUCTION") {
-        clientId="959350101705-2b65fq1nv6o2211ipkt87cb7a5askm82.apps.googleusercontent.com"
+        clientId="959350101705-ci2gb98611qod5td229t1cfim1cbna06.apps.googleusercontent.com"
 }
 
     const googleLogin = (user1) =>
         service.googleLogin(user1)
             .then(() => navigate('/home'))
             .catch(e => alert(e));
+    const onFailure = (res) => {
+        alert("Google Login is not available, please try normal login")
+    }
 
     const responseGoogle = (response) => {
-        const user = {
-            userName: response.profileObj.givenName,
-            password: response.profileObj.googleId,
-            email : response.profileObj.email,
-            profilePhoto: response.profileObj.imageUrl
+        console.log(response.profileObj)
+        let user = ""
+        if (response) {
+             user = {
+                userName: response.profileObj.givenName,
+                password: response.profileObj.googleId,
+                email: response.profileObj.email,
+                profilePhoto: response.profileObj.imageUrl
+            }
         }
         console.log('Logged In',user);
         const t= googleLogin(user).then(response => response);
@@ -54,7 +61,7 @@ export const Login = () => {
                     clientId={clientId}
                     buttonText="Login with Google"
                     onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
+                    onFailure={onFailure}
                     cookiePolicy={'single_host_origin'}
                 /></div>
         </div>

@@ -80,8 +80,9 @@ try{
                 </a>
               </div>
               : <div className="col-2">
-              <a>
-                You are banned from tuiting
+              <a onClick={() => navigate('/login')} className={`btn btn-primary rounded-pill fa-pull-right
+                                fw-bold ps-4 pe-4`}>
+                Login
               </a>
             </div>}
             </div>
