@@ -1,7 +1,7 @@
 /**
     Component that renders a tuit
 */
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import TuitStats from "./tuit-stats";
 import TuitImage from "./tuit-image";
 import TuitVideo from "./tuit-video";
@@ -11,11 +11,25 @@ import MyTuits from "../profile/my-tuits";
 import ProfileOther from "../profile/profile-other";
 
 const Tuit = ({tuit, deleteTuit, likeTuit, dislikeTuit}) => {
-    let user=null
-    useEffect(async () => {
+    let [user, setUser] = useState(null)
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const user1 = await service.profile();
+                setUser(user1)
+                // Do something with the user data, e.g., set it in component state
+            } catch (error) {
+                // Handle errors if necessary
+            }
+        };
 
-             user = await service.profile();
+        fetchData();
 
+        // Return a cleanup function if needed
+        // For example, if you have subscriptions or timers to clean up
+        return () => {
+            // Cleanup logic
+        };
     }, []);
     const navigate = useNavigate();
     const daysOld = (tuit) => {
