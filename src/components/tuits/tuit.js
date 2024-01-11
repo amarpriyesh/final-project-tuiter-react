@@ -68,7 +68,7 @@ const Tuit = ({tuit, deleteTuit, likeTuit, dislikeTuit}) => {
           <i onClick={() => {
               if(user._id===tuit.postedBy._id) {
                   deleteTuit(tuit._id)
-                  window.location. reload(true);
+
               }
               else {
                  // window.location. reload(true);
